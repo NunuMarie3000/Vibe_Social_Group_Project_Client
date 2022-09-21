@@ -22,6 +22,7 @@ const Header = ({logout}) => {
           </ul>
         </nav>
         <Routes>
+          {/* <Route exact path = "/" ></Route> */}
           {/* <Route exact path = "/about" element = {<About/>} /> */}
           {/* <Route exact path="/home" element={<HomePage />} /> */}
         </Routes>

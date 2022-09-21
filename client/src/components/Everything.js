@@ -5,7 +5,7 @@ export default function Everything({allMemories}) {
 
 
   return (
-    <div>
+    <div style = {{ display: "grid", gridTemplateColumns: "repeat(3, 18rem)", }}>
 
     {allMemories !== '' && allMemories.map(obj => (
 
