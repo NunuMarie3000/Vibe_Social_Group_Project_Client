@@ -1,10 +1,9 @@
-import React from 'react'
-import { Button } from 'react-bootstrap'
+import React from "react";
+import { Button } from "react-bootstrap";
 // import HomePage from "./pages/HomePage";
 // import About from "./pages/About"
-import { Link } from 'react-router-dom'
-import Profile from './Profile'
-
+import { Link } from "react-router-dom";
+import Profile from "./Profile";
 
 const Header = ({ logout, allMemories, userId }) => {
   return (
@@ -31,15 +30,35 @@ const Header = ({ logout, allMemories, userId }) => {
     //   </Router>
     // </div>
     <>
-      <nav>
-        <Link to='/'>Home</Link> | {' '}
-        {/* <Link to='/about'>About</Link> | {' '} */}
-        <Profile allMemories={allMemories} userId={userId} />
-        <Button onClick = {logout}>Logout</Button>
-      </nav>
+        <nav>
+          <ul className="flexnav">
+            <li>
+              <Link to="/">Home</Link>{" "}
+            </li>
+            {/* <Link to='/about'>About</Link> | {' '} */}
+            <li>
+              <Profile allMemories={allMemories} userId={userId} />
+            </li>
+            <li>
+              <Button
+                onClick={logout}
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  border: "#FFFFFF",
+                  color: "#29E7CD",
+                  fontFamily: "Manrope",
+                  textTransform: "uppercase",
+                  paddingTop: "10px",
+                  cursor: "pointer"
+                }}
+              >
+                Logout
+              </Button>
+            </li>
+          </ul>
+        </nav>
     </>
+  );
+};
 
-  )
-}
-
-export default Header
+export default Header;

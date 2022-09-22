@@ -71,7 +71,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
 
   return (
     <div>
-      <Card style={{ width: '18rem', height: "24rem" }}>
+      <Card style={{ width: '18rem', height: "auto" }}>
         <Card.Header style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/*instead of {author}, this is gonna be {user.name} from auth0 */}
           {author}
@@ -82,7 +82,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
 
         </Card.Header>
         <Card.Body>
-          <Card.Img src={image} />
+          <Card.Img src={image} style = {{width: "255px", height: "250px", objectFit: "cover", borderRadius: '0px'}} />
           <div class = "overflowCard">
           <hr/>
           <Card.Text style={{ marginTop: "10px", fontFamily: "Rubik" }}>
@@ -96,7 +96,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
           <div className="cardLogo">V</div>
 
         </Card.Body>
-        <Card.Footer>
+        <Card.Footer style = {{backgroundColor: "#FFFFFF"}}>
           {/* comments accordion */}
           {allComments !== '' && <Comments getComments={getComments} comments={allComments} author={author} memoryId={memoryId} />}
         </Card.Footer>

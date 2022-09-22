@@ -85,19 +85,21 @@ ul li a:hover{
   font-family: "Manrope";
   line-height: 0.5;
   background: #ffffff;
+  display: flex;
+  justify-content: space-evenly
   /* background:  transparent; */
-  width: 100%;
+  /* width: 100%; */
 }
 .flexnav > li > a {
-  padding: 18px 22px;
+  padding: 18px 0px 10px;
   font-size: 16px;
   text-transform: uppercase;
 }
-.flexnav:after {
+/* .flexnav:after {
   content: "";
   display: table;
   clear: both;
-} 
+}  */
 .flexnav > li {
   float: left;
   display: block;
@@ -154,6 +156,39 @@ ul li a:hover{
   overflow: scroll;
   padding: 10px;
   height: 100px;
+}
+
+.profileButton{
+  background-color: "#FFFFFF"; 
+  border: "#FFFFFF";
+  color: "#29E7CD";
+  font-family: "Manrope";
+  text-transform: 'uppercase';
+}
+
+.newVibeButton{
+display: grid;
+justify-content: center;
+transform: rotateZ(90deg);
+}
+
+.addVibeButton{
+  display: grid;
+justify-content: center;
+}
+
+.logoText{
+  font-family: 'Titan One';
+  font-size: inherit;
+}
+
+.profileButton{
+  background-color: "#FFFFFF";
+  color: "#29E7CD";
+          border: "#FFFFFF";
+          text-transform: "uppercase";
+          font-family: "Manrope";
+          padding-top: "10px";
 }
 
 /* ////////////////////////////DARK MODE ///////////////////////// */

@@ -27,10 +27,11 @@ export default function NewVibe({ isClicked, handleClick, userId, getMemories })
   return (
     <>
       <Modal show={isClicked} onHide={handleClick}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style = {{border: "none", height: "15px", backgroundColor: "#FFF7F8"}}>
         </Modal.Header>
-        <Modal.Title>Set a new vibe</Modal.Title>
-        <Modal.Body>
+        <Modal.Title style = {{display: 'grid', justifyContent: "center", fontFamily: " Titan One", color: "#24C1AC", backgroundColor:"#FFF7F8"}}>What's your VIBE?</Modal.Title>
+        {/* <Modal.Body style = {{backgroundColor: '#003D5B'}}> */}
+        <Modal.Body style = {{backgroundColor: '#FFF7F8'}}>
           <Form  onSubmit={handleSubmit} >
             <Form.Group className="mb-3" controlId="image">
               <Form.Label>Image</Form.Label>
@@ -41,17 +42,29 @@ export default function NewVibe({ isClicked, handleClick, userId, getMemories })
               <Form.Label>Vibe</Form.Label>
               <Form.Control required type="text" as="textarea" rows={3} placeholder="I love life <3" onChange={(e)=>setVibeContent(e.target.value)}/>
             </Form.Group>
-
-            <Button variant="primary" type="submit">
-              Submit
+            <div className = "addVibeButton">
+            <Button style = {{
+              fontSize: "16px",
+              color: "#24C1AC",
+              backgroundColor: "#FFFFFF",
+              border: "2px #29E7CD solid",
+              borderRadius: "50px",
+              alignItems: "center",
+              padding: "5px",
+              paddingRight: "-10px",
+              letterSpacing:'1px'
+            }} 
+            type="submit">
+              <div className = "logoText">Send Vibes</div>
             </Button>
+            </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClick}>
             Close
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </>
   )
