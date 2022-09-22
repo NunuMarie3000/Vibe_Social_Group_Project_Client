@@ -1,37 +1,107 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
+
+import EditDropdown from "./crud_memory/EditDropdown";
+import Comments from "./Comments";
+import axios from 'axios'
 import "../Nav.css";
-import "../DARKMODE.css";
 
-export default function memory({ author, createdAt, image, content }) {
+
+export default function Memory({ author, likes, createdAt, image, content, userId, memoryId, getMemories }) {
+  const memoryInfo = { author, createdAt, likes, image, content, userId, memoryId }
+  const [allComments, setAllComments] = useState('')
+  const [isLiked, setIsLiked] = useState(false)
+  let [updatedLikes, setUpdatedLikes] = useState(likes)
+
+  const getComments = async () => {
+    const url = `https://memories-socialmedia-group.herokuapp.com/comments/${memoryId}`
+    try {
+      await axios.get(url).then(res => setAllComments(res.data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // const likeVibe = () => {
+  //   setIsLiked(!isLiked)
+  //   setUpdatedLikes(updatedLikes++)
+  //   updateLikes()
+  //   getComments()
+  // }
+  const likeVibe = () => {
+    setIsLiked(!isLiked)
+    if (isLiked) {
+      setUpdatedLikes(updatedLikes--)
+    }
+    else if (!isLiked) {
+      setUpdatedLikes(updatedLikes++)
+    }
+    updateLikes()
+    getComments()
+  }
+
+  const updateLikes = async () => {
+    // const url = `http://localhost:8000/memory/${memoryId}`
+    const url = `https://memories-socialmedia-group.herokuapp.com/memory/${memoryId}`
+
+    const sendLikes = {
+      "likes": updatedLikes
+    }
+    try {
+      await axios.patch(url, sendLikes)
+      console.log(likes)
+      console.log(updatedLikes)
+      console.log(sendLikes)
+      getComments()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // i need a function to send patch request to update likes
+  // okay, maybe...
+  // how would i update likes? i could increase them, sure, but what if the user unlikes it after liking it?
+  // maybe just when i make the get comments request, i store the likes in state or useRef() and inc or dec within state, then like, componentDidUnmount, or whatever the functional equivalent is, make the patch request with whatever is in state? if componentDidUnmount is doing what i think its doing, running a piece of code right before the node is unmounted, if so, it'll update the db so whenever we come back, the final number will be accurately stored in the db
+
+  useEffect(() => {
+    getComments()
+    //eslint-disable-next-line
+  }, [])
+
+
   return (
-    <Card style={{ width: "18rem", height: "25rem", backgroundColor: "white" }}>
-      <Card.Header style={{ backgroundColor: "#ffffff", fontSize: "11px", textAlign:'left' }}>
-      {/* <div className="cardLogoHeader">V</div> */}
+    <div>
+      <Card style={{ width: '18rem', height: "24rem" }}>
+        <Card.Header style={{ display: 'flex', justifyContent: 'space-between' }}>
+          {/*instead of {author}, this is gonna be {user.name} from auth0 */}
+          {author}
 
-        {author}
-      </Card.Header>
-      <Card.Body
-        style={{
-          // backgroundColor: "#F4EBE8",
-          backgroundColor: "#ffffff",
-        }}
-      >
-        <Card.Img src={image} style={{}} />
-        {/* <div className="cardLogo">V</div> */}
+          {/* i'll use bootstrap dropdown button here that user can click if they wanna edit or delete
+        this is where imma put edit buttons if author matches userId on*/}
+          {userId === author && <EditDropdown getMemories={getMemories} memoryInfo={memoryInfo} />}
 
-        <Card.Text><hr/></Card.Text>
-        <div className="overflowCard">
+        </Card.Header>
+        <Card.Body>
+          <Card.Img src={image} />
+          <div class = "overflowCard">
+          <hr/>
           <Card.Text style={{ marginTop: "10px", fontFamily: "Rubik" }}>
-            {content}
+            {content}<br /><br />
+            Vibed: {createdAt.split('T')[0]}<br />
+            {!isLiked ? <i onClick={likeVibe} className="fa-regular fa-heart"></i> : <i onClick={likeVibe} className="fa-solid fa-heart"></i>}&nbsp;
+            {/*i'll add number of likes here */}
+            {updatedLikes}
           </Card.Text>
-        </div>
-        <div className="cardLogo">V</div>
-      </Card.Body>
-      <Card.Footer style={{ fontSize: "10px", textAlign: "left" }}>
-        {createdAt}
-      </Card.Footer>
-      {/* <button>Comments</button> accordion */}
-    </Card>
+          </div>
+          <div className="cardLogo">V</div>
+
+        </Card.Body>
+        <Card.Footer>
+          {/* comments accordion */}
+          {allComments !== '' && <Comments getComments={getComments} comments={allComments} author={author} memoryId={memoryId} />}
+        </Card.Footer>
+      </Card>
+    </div>
+
   );
 }

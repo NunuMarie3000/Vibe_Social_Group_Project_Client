@@ -1,8 +1,15 @@
-import React from "react";
-import Memory from "./Memory";
+import React from "react"
+import Memories from './Memories'
 
-export default function Everything({ allMemories }) {
+import NewVibeButton from "./NewVibeButton"
+
+export default function Everything({ allMemories, userId, getMemories }) {
+
+
   return (
+    <>
+      {/*we need to have a new vibe button at the top for users to create a new post */}
+      <NewVibeButton userId={userId} getMemories={getMemories}  />
     <div
       style={{
         display: "grid",
@@ -12,15 +19,10 @@ export default function Everything({ allMemories }) {
         marginTop: '60px'
       }}
     >
-      {allMemories !== "" &&
-        allMemories.map((obj) => (
-          <Memory
-            author={obj.author}
-            createdAt={obj.createdAt}
-            image={obj.image}
-            content={obj.content}
-          />
-        ))}
-    </div>
-  );
+      {allMemories !== '' && <Memories getMemories={getMemories} userId={userId} allMemories={allMemories} />}
+
+      </div>
+    </>
+  )
+
 }

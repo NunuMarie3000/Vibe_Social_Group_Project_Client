@@ -19,7 +19,8 @@ const App = () => {
     const userAPI = "https://memories-socialmedia-group.herokuapp.com/memories";
     let res = await axios.get(userAPI);
     setAllMemories(res.data)
-    setUserId("632b2cfae04541e4ffed9fac")
+    setUserId("632b2cfae04541e4ffed9fac") /*storm's userId */
+    // setUserId("632b2cfbe04541e4ffed9fa") /*tyler's userId */
   }
 
   // const getUser = async()=>{
@@ -63,9 +64,9 @@ const App = () => {
   return (
     <div>
       {/* <Header logout = {logout}/> */}
-      <Header/>
+      {allMemories !== '' && userId !== '' && <Header allMemories={allMemories} userId={userId} />}
       {/* {!user && <LoginPage login = {loginWithRedirect}/>} */}
-      {allMemories !== '' && userId !== '' && <Everything allMemories = {allMemories} userId = {userId} getMemories = {getMemories}/>}
+      {allMemories !== '' && userId !== '' && <Everything allMemories = {allMemories} getMemories={getMemories} userId = {userId}/>}
       <Footer />
     </div>
   );

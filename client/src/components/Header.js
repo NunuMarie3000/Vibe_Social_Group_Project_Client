@@ -1,49 +1,44 @@
 import React from 'react'
-import { Route, Routes, BrowserRouter as Router, Link } from "react-router-dom";
+import { Button } from 'react-bootstrap'
 // import HomePage from "./pages/HomePage";
-import About from "../pages/About"
-import DarkMode from "./DarkMode"
-import "../Nav.css"
+// import About from "./pages/About"
+import { Link } from 'react-router-dom'
+import Profile from './Profile'
 
-// const Header = ({logout}) => {
-const Header = () => {
+
+const Header = ({ logout, allMemories, userId }) => {
   return (
-    <div class = "container">
-    
-    {/* <div class="toggle">
-       <a href = '#'><i class="fa fa-bars"></i></a>
-      </div>       */}
-      <Router>
-        <nav>
-          <ul class = "flexnav">
-          {/* <div class="menu"> */}
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="*">Logout</Link>
-            </li>
-            {/* <li>
-             <DarkMode/>
-            </li> */}
-            <li>
-              {/* <button onClick = {logout}>Logout</button> */}
-              {/* <button>Logout</button> */}
-            </li>
-          </ul>
-          {/* </div> */}
-        </nav>
-        <Routes>
-          {/* <Route exact path = "/" ></Route> */}
-          <Route exact path = "/about" element = {<About/>} />
-          {/* <Route exact path="/home" element={<HomePage />} /> */}
-        </Routes>
-      </Router>
-     </div>
-    
+    // <div className = "container">
+    //   <Router>
+    //     <nav>
+    //       <ul className = "flexnav">
+    //         <li>
+    //           <Link to="/">Home</Link>
+    //         </li>
+    //         <li>
+    //           <Link to="/about">About</Link>
+    //         </li>
+    //         <li>
+    //           {/* <button onClick = {logout}>Logout</button> */}
+    //         </li>
+    //       </ul>
+    //     </nav>
+    //     <Routes>
+    //       {/* <Route exact path = "/" ></Route> */}
+    //       {/* <Route exact path = "/about" element = {<About/>} /> */}
+    //       {/* <Route exact path="/home" element={<HomePage />} /> */}
+    //     </Routes>
+    //   </Router>
+    // </div>
+    <>
+      <nav>
+        <Link to='/'>Home</Link> | {' '}
+        {/* <Link to='/about'>About</Link> | {' '} */}
+        <Profile allMemories={allMemories} userId={userId} />
+        <Button onClick = {logout}>Logout</Button>
+      </nav>
+    </>
+
   )
 }
 
