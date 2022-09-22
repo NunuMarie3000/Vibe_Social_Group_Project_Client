@@ -1,14 +1,10 @@
 //Login.js
-import React, { useState } from "react";
-import "../App.css";
+import React from "react";
 
-const Login = ({login}) => {
-
-
-
+const Login = ({loginWithRedirect}) => {
   return (
     <div>
-      <button onClick = {login}>Login</button>
+      <button onClick = {()=> loginWithRedirect()}>Login</button>
     </div>
   );
 };

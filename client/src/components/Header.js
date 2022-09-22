@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
 
-const Header = ({ logout, allMemories, userId }) => {
+const Header = ({ logout, allMemories, userId, user }) => {
   return (
     // <div className = "container">
     //   <Router>
@@ -37,7 +37,7 @@ const Header = ({ logout, allMemories, userId }) => {
             </li>
             {/* <Link to='/about'>About</Link> | {' '} */}
             <li>
-              <Profile allMemories={allMemories} userId={userId} />
+              <Profile user={user} allMemories={allMemories} userId={userId} />
             </li>
             <li>
               <Button
