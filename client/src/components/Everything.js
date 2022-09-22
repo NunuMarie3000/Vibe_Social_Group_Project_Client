@@ -8,7 +8,7 @@ export default function Everything({ allMemories }) {
         display: "grid",
         gridTemplateColumns: "repeat(3, 18rem)",
         gridColumnGap: "10px",
-        marginTop: '100px'
+        marginTop: '60px'
       }}
     >
       {allMemories !== "" &&

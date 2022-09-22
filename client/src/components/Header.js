@@ -8,21 +8,25 @@ import "../Nav.css"
 // const Header = ({logout}) => {
 const Header = () => {
   return (
-    <div>
+    <div class = "container">
       <Router>
         <nav>
-          <ul>
+          <ul class = "flexnav">
             <li>
-              {/* <Link to="/">Home</Link> */}
+              <Link to="/">Home</Link>
             </li>
             <li>
-              {/* <Link to="/about">About</Link> */}
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="*">Logout</Link>
             </li>
             {/* <li>
              <DarkMode/>
             </li> */}
             <li>
               {/* <button onClick = {logout}>Logout</button> */}
+              {/* <button>Logout</button> */}
             </li>
           </ul>
         </nav>
