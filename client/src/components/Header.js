@@ -8,10 +8,10 @@ import Profile from './Profile'
 
 const Header = ({ logout, allMemories, userId }) => {
   return (
-    // <div>
+    // <div className = "container">
     //   <Router>
     //     <nav>
-    //       <ul>
+    //       <ul className = "flexnav">
     //         <li>
     //           <Link to="/">Home</Link>
     //         </li>
@@ -38,6 +38,7 @@ const Header = ({ logout, allMemories, userId }) => {
         <Button onClick = {logout}>Logout</Button>
       </nav>
     </>
+
   )
 }
 

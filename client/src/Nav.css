@@ -1,0 +1,164 @@
+/* .App{
+  text-align: center;
+  background: rgb(244,235,232);
+  background: radial-gradient(circle, rgba(244,235,232,1) 0%, rgba(41,231,205,1) 28%, rgba(224,134,211,1) 84%);
+} */
+/* .light{} */
+
+body {
+  background: rgb(41, 231, 205);
+  background: radial-gradient(
+    circle,
+    rgba(41, 231, 205, 1) 0%,
+    rgba(224, 134, 211, 1) 71%
+  );
+  display: grid;
+  justify-content: center;
+  background-attachment: fixed;
+}
+
+
+/* .toggle{
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  z-index: 2
+}
+.toggle a{
+  text-decoration: none;
+  color: #262626;
+  font-size: 24px;
+  cursor: pointer;
+}
+.menu{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+  z-index: 1;
+  transition: 0.5s;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+ul li{
+  list-style: none;
+}
+
+ul li a{
+  padding: 10px;
+  display: inline-block;
+  font-family: verdana;
+  font-size: 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #262626;
+}
+ul li a:hover{
+  background: #29E7CD;
+  border-radius: 10px;
+   
+}
+.menu.active{
+  left: 0;
+  overflow: auto;
+} */
+
+
+
+/* //////////////////////////////////////////nav bar//////////// */
+.container {
+  width: 100%;
+}
+
+.flexnav{
+  font-family: "Manrope";
+  line-height: 0.5;
+  background: #ffffff;
+  /* background:  transparent; */
+  width: 100%;
+}
+.flexnav > li > a {
+  padding: 18px 22px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.flexnav:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+.flexnav > li {
+  float: left;
+  display: block;
+  position: relative;
+
+}
+.flexnav li a {
+  color: #29E7CD;
+  text-align: center;
+
+}
+.flexnav > li > a {
+  display: block;
+  font-weight: 300;
+  text-decoration: none;
+
+}
+.flexnav li a:hover {
+  color: #243119;
+} 
+
+.logoffButton {
+  position: absolute;
+  /* left: 450px; */
+  display: grid;
+  /* text-align: right; */
+}
+
+.logoV {
+  font-family: "Titan One";
+}
+
+.cardLogo {
+  text-align: right;
+  font-family: "Titan One";
+  font-size: 16px;
+  margin-bottom: -19px;
+}
+.cardLogoHeader {
+  text-align: right;
+  font-family: "Titan One";
+  font-size: "14px";
+  margin-bottom: -19px;
+}
+
+.mainLogo {
+  font-family: "Titan One";
+  font-size: 60px;
+  text-align: center;
+  color: white;
+}
+
+.overflowCard {
+  overflow: scroll;
+  padding: 10px;
+  height: 100px;
+}
+
+/* ////////////////////////////DARK MODE ///////////////////////// */
+
+.dark {
+  background-color: black;
+  color: #000000;
+}

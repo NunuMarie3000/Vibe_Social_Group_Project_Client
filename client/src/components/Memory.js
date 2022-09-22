@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
+
 import EditDropdown from "./crud_memory/EditDropdown";
 import Comments from "./Comments";
 import axios from 'axios'
+import "../Nav.css";
+
 
 export default function Memory({ author, likes, createdAt, image, content, userId, memoryId, getMemories }) {
   const memoryInfo = { author, createdAt, likes, image, content, userId, memoryId }
@@ -65,6 +68,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
     //eslint-disable-next-line
   }, [])
 
+
   return (
     <div>
       <Card style={{ width: '18rem', height: "24rem" }}>
@@ -79,13 +83,18 @@ export default function Memory({ author, likes, createdAt, image, content, userI
         </Card.Header>
         <Card.Body>
           <Card.Img src={image} />
-          <Card.Text>
+          <div class = "overflowCard">
+          <hr/>
+          <Card.Text style={{ marginTop: "10px", fontFamily: "Rubik" }}>
             {content}<br /><br />
             Vibed: {createdAt.split('T')[0]}<br />
             {!isLiked ? <i onClick={likeVibe} className="fa-regular fa-heart"></i> : <i onClick={likeVibe} className="fa-solid fa-heart"></i>}&nbsp;
             {/*i'll add number of likes here */}
             {updatedLikes}
           </Card.Text>
+          </div>
+          <div className="cardLogo">V</div>
+
         </Card.Body>
         <Card.Footer>
           {/* comments accordion */}
@@ -93,5 +102,6 @@ export default function Memory({ author, likes, createdAt, image, content, userI
         </Card.Footer>
       </Card>
     </div>
+
   );
 }

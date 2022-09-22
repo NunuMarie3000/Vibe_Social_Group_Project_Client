@@ -9,14 +9,20 @@ export default function Everything({ allMemories, userId, getMemories }) {
   return (
     <>
       {/*we need to have a new vibe button at the top for users to create a new post */}
-      <NewVibeButton userId={userId} getMemories={getMemories} />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 18rem)", gridColumnGap: "10px" }}>
-
+      <NewVibeButton userId={userId} getMemories={getMemories}  />
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 18rem)",
+        gridColumnGap: "10px",
+        gridRowGap:"10px",
+        marginTop: '60px'
+      }}
+    >
       {allMemories !== '' && <Memories getMemories={getMemories} userId={userId} allMemories={allMemories} />}
 
       </div>
     </>
   )
+
 }
-
-
