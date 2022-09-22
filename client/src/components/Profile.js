@@ -64,7 +64,7 @@ export default function Profile({ allMemories, userId, user }) {
                   }}
                 >
                   {/*instead of {author}, this is gonna be {user.name} from auth0 */}
-                  {mem.author}
+                  {user.nickname}
                 </Card.Header>
                 <Card.Body>
                   <Card.Img src={mem.image} />

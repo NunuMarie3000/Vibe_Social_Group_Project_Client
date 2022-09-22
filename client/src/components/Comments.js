@@ -1,15 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import NewComment from './crud_comments/NewComment'
 import EditComment from './crud_comments/EditComment'
 import DeleteComment from './crud_comments/DeleteComment'
 
-export default function Comments({ comments, memoryId, author, getComments }) {
+export default function Comments({ comments, memoryId, author, getComments, allUsers }) {
   const [isAddClicked, setIsAddClicked] = useState(false)
+  const [authorUsername, setAuthorUsername] = useState('')
 
   const handleAddClick = () => {
     setIsAddClicked(!isAddClicked)
   }
+
+  const matchUserToComment = () => {
+    let correctAuthor = allUsers.filter(obj => obj._id === author)
+    setAuthorUsername(correctAuthor[0].email.split("@")[0])
+  }
+
+  useEffect(() => {
+    matchUserToComment()
+  })
 
   return (
     <>
@@ -26,7 +36,7 @@ export default function Comments({ comments, memoryId, author, getComments }) {
             {comments !== '' && comments.length > 1 && comments.map(com => (
               <Card key={com._id}>
                 <Card.Body>
-                  <Card.Title>{com.author}</Card.Title> {/*this will change to be user.name from auth0 user */}
+                  <Card.Title>{authorUsername}</Card.Title> {/*this will change to be user.name from auth0 user */}
                   <Card.Text>
                     {com.body}
                   </Card.Text>
@@ -40,7 +50,7 @@ export default function Comments({ comments, memoryId, author, getComments }) {
             {comments !== '' && comments.length === 1 &&
               <Card key={comments[0]._id}>
                 <Card.Body>
-                  <Card.Title>{comments[0].author}</Card.Title>
+                  <Card.Title>{authorUsername}</Card.Title>
                   <Card.Text>
                     {comments[0].body}
                   </Card.Text>

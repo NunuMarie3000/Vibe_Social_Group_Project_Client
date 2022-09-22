@@ -91,7 +91,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
         </Card.Header>
         <Card.Body>
           <Card.Img src={image} style = {{width: "255px", height: "250px", objectFit: "cover", borderRadius: '0px'}} />
-          <div className = "authorImage">{author}</div>
+          <div className = "authorImage">{authorUsername}</div>
 
           <hr/>
           <Card.Text style={{ marginTop: "10px", fontFamily: "Rubik" }}>
@@ -107,7 +107,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
         </Card.Body>
         <Card.Footer style = {{backgroundColor: "#FFFFFF"}}>
           {/* comments accordion */}
-          {allComments !== '' && <Comments getComments={getComments} comments={allComments} author={author} memoryId={memoryId} />}
+          {allComments !== '' && <Comments allUsers={allUsers} getComments={getComments} comments={allComments} author={author} memoryId={memoryId} />}
         </Card.Footer>
       </Card>
     </div>
