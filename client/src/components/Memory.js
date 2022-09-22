@@ -74,7 +74,8 @@ export default function Memory({ author, likes, createdAt, image, content, userI
       <Card style={{ width: '18rem', height: "auto" }}>
         <Card.Header style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/*instead of {author}, this is gonna be {user.name} from auth0 */}
-          {author}
+          {/* {author} */}
+
 
           {/* i'll use bootstrap dropdown button here that user can click if they wanna edit or delete
         this is where imma put edit buttons if author matches userId on*/}
@@ -83,7 +84,8 @@ export default function Memory({ author, likes, createdAt, image, content, userI
         </Card.Header>
         <Card.Body>
           <Card.Img src={image} style = {{width: "255px", height: "250px", objectFit: "cover", borderRadius: '0px'}} />
-          <div class = "overflowCard">
+          <div className = "authorImage">{author}</div>
+          {/* <div class = "overflowCard"> */}
           <hr/>
           <Card.Text style={{ marginTop: "10px", fontFamily: "Rubik" }}>
             {content}<br /><br />
@@ -92,7 +94,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
             {/*i'll add number of likes here */}
             {updatedLikes}
           </Card.Text>
-          </div>
+          {/* </div> */}
           <div className="cardLogo">V</div>
 
         </Card.Body>

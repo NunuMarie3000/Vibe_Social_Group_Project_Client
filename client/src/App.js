@@ -63,6 +63,9 @@ const App = () => {
 
   return (
     <div>
+      <div class = "mainLogo">
+      VIBE
+    </div>
       {/* <Header logout = {logout}/> */}
       {allMemories !== '' && userId !== '' && <Header allMemories={allMemories} userId={userId} />}
       {/* {!user && <LoginPage login = {loginWithRedirect}/>} */}
