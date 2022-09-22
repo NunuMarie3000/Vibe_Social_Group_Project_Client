@@ -1,0 +1,85 @@
+/* .App{
+  text-align: center;
+  background: rgb(244,235,232);
+  background: radial-gradient(circle, rgba(244,235,232,1) 0%, rgba(41,231,205,1) 28%, rgba(224,134,211,1) 84%);
+} */
+/* .light{} */
+ 
+  body{background: rgb(41,231,205);
+ background: radial-gradient(circle, rgba(41,231,205,1) 0%, rgba(224,134,211,1) 71%);
+   display: grid;
+   justify-content: center;
+  }
+
+ .container {
+   width: 80%;
+   margin: auto;
+   top: 50px;
+   position: relative;
+ }
+ .flexnav,
+ .flexnav ul {
+   list-style: none;
+   margin: 0;
+ }
+ .flexnav,
+ .menu-button {
+   font-family: Lato, Helvetica, sans-serif;
+   line-height: 1;
+   background: #ffffff;
+ }
+ .flexnav {
+   padding: 0;
+   display: inline-block;
+   overflow: visible;
+   width: 100%;
+ }
+ .flexnav > li > a,
+ .menu-button {
+   padding: 18px 22px;
+   font-size: 18px;
+   text-transform: uppercase;
+ }
+ .flexnav:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+ .menu-button {
+   display: none;
+   color: #3993dd;
+   cursor: pointer;
+ }
+ .flexnav > li {
+   float: left;
+   display: block;
+   position: relative;
+ }
+ .flexnav li a {
+   color: #3993dd;
+ }
+ .flexnav > li > a {
+   display: block;
+   font-weight: 300;
+   text-decoration: none;
+ }
+ .flexnav li a:hover {
+   color: #e086d3;
+ }
+ 
+ .logoffButton{
+   position: absolute;
+   /* left: 450px; */
+   display: grid;
+   text-align:right;
+ }
+
+.logoV{
+  font-family: "Titan One";
+}
+
+ .dark {
+  background-color: black;
+  color: #000000;
+
+}
