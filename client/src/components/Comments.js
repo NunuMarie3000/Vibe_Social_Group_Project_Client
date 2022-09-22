@@ -15,12 +15,12 @@ export default function Comments({ comments, memoryId, author, getComments }) {
     <>
       <Accordion flush>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Comments</Accordion.Header>
+          <Accordion.Header style = {{fontFamily: 'Manrope'}}>Comments</Accordion.Header>
           <Accordion.Body style={{ overflowY: 'scroll', height: '100px' }}>
 
             {/*add comment button */}
-            <div>
-              <i onClick={handleAddClick} className="fa-solid fa-plus"> New Comment</i>
+            <div style = {{fontFamily: "Manrope", letterSpacing: "1"}}>
+              <i onClick={handleAddClick}>+ New Comment</i>
             </div>
 
             {comments !== '' && comments.length > 1 && comments.map(com => (

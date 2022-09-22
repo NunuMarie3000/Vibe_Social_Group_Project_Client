@@ -12,7 +12,7 @@ export default function Everything({ allMemories, userId, getMemories, user, all
       <NewVibeButton userId={userId} getMemories={getMemories}  />
     <div
       style={{
-        display: "grid",
+        display: 'grid',
         gridTemplateColumns: "repeat(3, 18rem)",
         gridColumnGap: "10px",
         gridRowGap:"10px",

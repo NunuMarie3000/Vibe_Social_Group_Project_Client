@@ -23,7 +23,8 @@ export default function EditDropdown({ memoryInfo, getMemories }) {
   return (
     <>
       {/* <DropdownButton  id="dropdown-basic-button" size='sm' drop='start' title=""> */}
-      <DropdownButton  id="dropdown-basic-button" align={{ xSmall: 'start' }} title="✎">
+      <DropdownButton  id="dropdown-basic-button" align={{ xSmall: 'start' }} style = {{color: 'red'}} title="✎">
+
         <Dropdown.Item onClick={handleEditClick}>
           <i className="fa-solid fa-pencil"></i> Edit Vibe
         </Dropdown.Item>

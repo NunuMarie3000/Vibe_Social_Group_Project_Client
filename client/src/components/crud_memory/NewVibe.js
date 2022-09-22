@@ -40,7 +40,7 @@ export default function NewVibe({ isClicked, handleClick, userId, getMemories })
 
             <Form.Group className="mb-3" controlId="content">
               <Form.Label>Vibe</Form.Label>
-              <Form.Control required type="text" as="textarea" rows={3} placeholder="I love life <3" onChange={(e)=>setVibeContent(e.target.value)}/>
+              <Form.Control required type="text" as="textarea" rows={3} maxLength = "50" placeholder="I love life <3" onChange={(e)=>setVibeContent(e.target.value)}/>
             </Form.Group>
             <div className = "addVibeButton">
             <Button style = {{
