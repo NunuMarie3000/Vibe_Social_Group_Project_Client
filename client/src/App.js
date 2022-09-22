@@ -65,7 +65,7 @@ const App = () => {
       {/* <Header logout = {logout}/> */}
       <Header/>
       {/* {!user && <LoginPage login = {loginWithRedirect}/>} */}
-      {allMemories !== '' && userId !== '' && <Everything allMemories = {allMemories} userId = {userId}/>}
+      {allMemories !== '' && userId !== '' && <Everything allMemories = {allMemories} userId = {userId} getMemories = {getMemories}/>}
       <Footer />
     </div>
   );
