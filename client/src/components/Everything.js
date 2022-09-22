@@ -3,7 +3,7 @@ import Memories from './Memories'
 
 import NewVibeButton from "./NewVibeButton"
 
-export default function Everything({ allMemories, userId, getMemories }) {
+export default function Everything({ allMemories, userId, getMemories, user, allUsers }) {
 
 
   return (
@@ -19,7 +19,7 @@ export default function Everything({ allMemories, userId, getMemories }) {
         marginTop: '60px'
       }}
     >
-      {allMemories !== '' && <Memories getMemories={getMemories} userId={userId} allMemories={allMemories} />}
+      {allMemories !== '' && <Memories allUsers={allUsers} user={user} getMemories={getMemories} userId={userId} allMemories={allMemories} />}
 
       </div>
     </>

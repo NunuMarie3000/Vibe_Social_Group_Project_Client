@@ -5,17 +5,15 @@ import App from "./App";
 import "./Nav.css"
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-
-// import {BrowserRouter} from "react-router-dom";
-// import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <Auth0Provider
-    domain = {process.env.DOMAIN}
-    clientId = {process.env.CLIENTID}
-    redirectUri = {process.env.REDIRECTURI}> */}
+    <Auth0Provider
+    domain = "nunumarie3000.us.auth0.com"
+    clientId = "2KsqG4VJrsZHSuc2gcn4njqdEtN2o3wC"
+    redirectUri = {window.location.origin}>
 
     <BrowserRouter>
       <Routes>
@@ -25,6 +23,6 @@ root.render(
       </Routes>
     </BrowserRouter>
 
-    {/* </Auth0Provider> */}
+    </Auth0Provider>
   </React.StrictMode>
 );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Offcanvas, Card } from "react-bootstrap";
 
 // ill also pass the auth0 user object here so i have access to username and "profile pic"
-export default function Profile({ allMemories, userId }) {
+export default function Profile({ allMemories, userId, user }) {
   const [isClicked, setIsClicked] = useState(false);
   const [userMems, setUserMems] = useState("");
 
@@ -46,7 +46,7 @@ export default function Profile({ allMemories, userId }) {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title style={{ color: "#FFFFFF" }}>
             {" "}
-            User's profile
+            {user.nickname}'s profile
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
