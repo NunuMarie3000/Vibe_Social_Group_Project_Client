@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { Modal, Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 
-export default function NewComment({ author, memoryId, handleAddClick, isAddClicked, getComments }) {
+export default function NewComment({ memoryId, handleAddClick, isAddClicked, getComments, userId }) {
   const [commentBody, setCommentBody] = useState('')
 
 
   const handleSubmit = async (e) => {
     const url = `https://memories-socialmedia-group.herokuapp.com/newcomment`
     const newComment = {
-      author: author,
+      // this userId is the auth0 userobject, where did i go wrong?
+      author: userId,
       body: commentBody,
       commented_on: memoryId
     }

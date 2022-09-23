@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Card } from "react-bootstrap";
 
 import EditDropdown from "./crud_memory/EditDropdown";
@@ -6,31 +6,16 @@ import Comments from "./Comments";
 import axios from "axios";
 import "../Nav.css";
 
-export default function Memory({
-  author,
-  likes,
-  createdAt,
-  image,
-  content,
-  userId,
-  memoryId,
-  getMemories,
-  user,
-  allUsers,
-}) {
-  const memoryInfo = {
-    author,
-    createdAt,
-    likes,
-    image,
-    content,
-    userId,
-    memoryId,
-  };
-  const [allComments, setAllComments] = useState("");
-  const [isLiked, setIsLiked] = useState(false);
-  let [updatedLikes, setUpdatedLikes] = useState(likes);
-  const [authorUsername, setAuthorUsername] = useState("");
+
+
+export default function Memory({ author, likes, createdAt, image, content, userId, memoryId, getMemories, user, allUsers }) {
+  const memoryInfo = { author, createdAt, likes, image, content, userId, memoryId }
+  
+  const [allComments, setAllComments] = useState('')
+  const [isLiked, setIsLiked] = useState(false)
+  const [authorUsername, setAuthorUsername] = useState('')
+  // useRef instead of state so it persists between renders until my patch request before component dies
+  const likeCounter = useRef(0)
 
   const getComments = async () => {
     const url = `https://memories-socialmedia-group.herokuapp.com/comments/${memoryId}`;
@@ -42,40 +27,26 @@ export default function Memory({
   };
 
   const matchUserToMemory = () => {
-    let correctAuthor = allUsers.filter((obj) => obj._id === author);
-    setAuthorUsername(correctAuthor[0].email.split("@")[0]);
-  };
 
-  // const likeVibe = () => {
-  //   setIsLiked(!isLiked)
-  //   setUpdatedLikes(updatedLikes++)
-  //   updateLikes()
-  //   getComments()
-  // }
+    let correctAuthor = allUsers.find(obj =>{return obj._id === author})
+    setAuthorUsername(correctAuthor.email.split("@")[0])
+  }
+
   const likeVibe = () => {
-    setIsLiked(!isLiked);
-    if (isLiked) {
-      setUpdatedLikes(updatedLikes--);
-    } else if (!isLiked) {
-      setUpdatedLikes(updatedLikes++);
-    }
-    updateLikes();
-    getComments();
-  };
+
+    setIsLiked(!isLiked)
+    if(!isLiked){return (likeCounter.current = likeCounter.current + 1)}
+    else return (likeCounter.current = likeCounter.current - 1)
+  }
 
   const updateLikes = async () => {
-    // const url = `http://localhost:8000/memory/${memoryId}`
-    const url = `https://memories-socialmedia-group.herokuapp.com/memory/${memoryId}`;
+    const url = `https://memories-socialmedia-group.herokuapp.com/memory/${memoryId}`
 
     const sendLikes = {
-      likes: updatedLikes,
-    };
+      "likes": (likeCounter.current + likes)
+    }
     try {
-      await axios.patch(url, sendLikes);
-      console.log(likes);
-      console.log(updatedLikes);
-      console.log(sendLikes);
-      getComments();
+      await axios.patch(url, sendLikes)
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +61,17 @@ export default function Memory({
     matchUserToMemory();
     getComments();
     //eslint-disable-next-line
-  }, []);
+
+  }, [])
+
+  // this is acting like componentWillUnmount, sends patch request to the server updating likes in the db right before the component gets destroyed
+  useEffect(() => {
+    updateLikes()
+    return () => {
+      updateLikes()
+    }
+  })
+
 
   return (
     <div style={{ marginTop: "0px" }}>
@@ -109,6 +90,7 @@ export default function Memory({
             <EditDropdown getMemories={getMemories} memoryInfo={memoryInfo} />
           )}
         </Card.Header>
+
         <Card.Body style={{ backgroundColor: "#fffafa" }}>
           <Card.Img
             src={image}
@@ -119,9 +101,9 @@ export default function Memory({
               borderRadius: "0px",
             }}
           />
-          <div className="authorImage">{authorUsername}</div>
+          <div className = "authorImage">{authorUsername}</div>
 
-          <hr />
+          <hr/>
           <Card.Text
             style={{
               marginTop: "10px",
@@ -129,33 +111,20 @@ export default function Memory({
               fontSize: "13px",
             }}
           >
-            {content}
-            <br />
-            <br />
-            Vibed: {createdAt.split("T")[0]}
-            <br />
-            {!isLiked ? (
-              <i onClick={likeVibe} className="fa-regular fa-heart"></i>
-            ) : (
-              <i onClick={likeVibe} className="fa-solid fa-heart"></i>
-            )}
-            &nbsp;
+            {content}<br /><br />
+            Vibed: {createdAt.split('T')[0]}<br />
+            {!isLiked ? <i onClick={likeVibe} className="fa-regular fa-heart"></i> : <i onClick={likeVibe} className="fa-solid fa-heart"></i>}&nbsp;
             {/*i'll add number of likes here */}
-            {updatedLikes}
+            {/* {updatedLikes} */}
+            {(likeCounter.current) + (likes)}
           </Card.Text>
           {/* </div> */}
         </Card.Body>
         <Card.Footer style={{ backgroundColor: "#FFFFFF" }}>
           {/* comments accordion */}
-          {allComments !== "" && (
-            <Comments
-              getComments={getComments}
-              comments={allComments}
-              author={author}
-              memoryId={memoryId}
-              authorUsername={authorUsername}
-            />
-          )}
+
+          {allComments !== '' && <Comments userAuth0={user} allUsers={allUsers} getComments={getComments} comments={allComments} author={author} memoryId={memoryId} userId={userId} />}
+
         </Card.Footer>
       </Card>
     </div>
