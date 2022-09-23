@@ -18,7 +18,7 @@ export default function Comments({ comments, memoryId, author, getComments, allU
         <Accordion.Item eventKey="0">
         
           <Accordion.Header style={{ fontFamily: 'Manrope' }}>Comments</Accordion.Header>
-          <Accordion.Body style={{ overflowY: 'scroll', height: '100px' }}>
+          <Accordion.Body style={{ overflowY: 'scroll', height: 'auto' }}>
 
             {/*add comment button */}
             <div style={{ fontFamily: "Manrope", letterSpacing: "1" }}>
