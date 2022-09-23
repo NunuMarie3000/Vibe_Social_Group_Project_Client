@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import "./Nav.css"
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import About from './pages/About';
 
 import { Auth0Provider } from "@auth0/auth0-react";
 
@@ -18,6 +19,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<App/>}></Route>
+        <Route path='about' element={<About/>}/>
+
         {/* <Route exact path="/about" element={<About />} /> */}
         {/* <Route exact path="/home" element={<HomePage />} /> */}
       </Routes>

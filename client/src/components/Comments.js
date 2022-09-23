@@ -28,7 +28,7 @@ export default function Comments({ comments, memoryId, author, authorUsername, g
                   <Card.Text>
                     {com.body}
                   </Card.Text>
-                  <Card.Footer style={{display:'flex', justifyContent:'space-between', fontSize: "12px", backgroundColor: "#29E7CD",borderRadius: "5px", color: "#ffffff"}}>
+                  <Card.Footer style={{display:'flex', justifyContent:'space-between',fontSize: "12px", backgroundColor: "#29E7CD",borderRadius: "5px", height: 'auto', color: "#ffffff"}}>
                     {/*edit comment button */}{/*delete comment button */}
                     {com.author === author && <><EditComment memoryId={memoryId} body={com.body} author={author} getComments={getComments} commentId={com._id}/> <DeleteComment getComments={getComments} commentId={com._id} /></>}
                   </Card.Footer>
