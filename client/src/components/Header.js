@@ -35,7 +35,16 @@ const Header = ({ logout, allMemories, userId, user }) => {
             <li>
               <Link to="/">Home</Link>{" "}
             </li>
-            {/* <Link to='/about'>About</Link> | {' '} */}
+            <Link style={{
+                  backgroundColor: "#FFFFFF",
+                  border: "#FFFFFF",
+                  color: "#29E7CD",
+                  fontFamily: "Manrope",
+                  textTransform: "uppercase",
+                  paddingTop: "17px",
+                  cursor: "pointer",
+                  textDecoration: "none"
+                }}to='/about'>About</Link>{" "}
             <li>
               <Profile user={user} allMemories={allMemories} userId={userId} />
             </li>

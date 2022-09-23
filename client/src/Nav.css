@@ -12,7 +12,7 @@ body {
     rgba(41, 231, 205, 1) 0%,
     rgba(224, 134, 211, 1) 71%
   );
-  display: flex;
+  display: grid;
   justify-content: center;
   background-attachment: fixed;
 }
@@ -45,12 +45,10 @@ body {
   float: left;
   display: block;
   position: relative;
-
 }
 .flexnav li a {
   color: #29E7CD;
   text-align: center;
-
 }
 .flexnav > li > a {
   display: block;
@@ -76,7 +74,7 @@ body {
 .cardLogo {
   text-align: right;
   font-family: "Titan One";
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: -19px;
 }
 .cardLogoHeader {
@@ -146,4 +144,10 @@ justify-content: center;
 .dark {
   background-color: black;
   color: #000000;
+}
+
+/* //////////////////////////LOGIN//////////////////// */
+
+.realLoginButton:hover{
+background-color: white;
 }

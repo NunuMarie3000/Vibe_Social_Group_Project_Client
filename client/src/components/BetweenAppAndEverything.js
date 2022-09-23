@@ -10,8 +10,7 @@ export default function BetweenAppAndEverything({ logout, isLoading, user }) {
   let [allUsers, setAllUsers] = useState('')
 
   const getMemories = async () => {
-    // const userAPI = `${process.env.APIURL}/memories`;
-    const userAPI = "https://memories-socialmedia-group.herokuapp.com/memories";
+    const userAPI = `${process.env.REACT_APP_APIURL}/memories`;
     try {
       let res = await axios.get(userAPI);
       setAllMemories(res.data)

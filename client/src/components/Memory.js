@@ -77,10 +77,11 @@ export default function Memory({ author, likes, createdAt, image, content, userI
 
 
   return (
-    <div>
+    <div style = {{marginTop: ""}}>
       <Card style={{ width: '18rem', height: "auto" }}>
         <Card.Header style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/*instead of {author}, this is gonna be {user.name} from auth0 */}
+          <div className="cardLogo">V</div>
 
           {authorUsername !== '' && authorUsername}
 
@@ -91,7 +92,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
         </Card.Header>
         <Card.Body>
           <Card.Img src={image} style = {{width: "255px", height: "250px", objectFit: "cover", borderRadius: '0px'}} />
-          <div className = "authorImage">{author}</div>
+          <div className = "authorImage">{authorUsername}</div>
 
           <hr/>
           <Card.Text style={{ marginTop: "10px", fontFamily: "Rubik" }}>
@@ -102,7 +103,6 @@ export default function Memory({ author, likes, createdAt, image, content, userI
             {updatedLikes}
           </Card.Text>
           {/* </div> */}
-          <div className="cardLogo">V</div>
 
         </Card.Body>
         <Card.Footer style = {{backgroundColor: "#FFFFFF"}}>
