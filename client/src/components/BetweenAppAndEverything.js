@@ -3,11 +3,12 @@ import Header from "./Header";
 import axios from "axios";
 import Everything from "./Everything"
 
-export default function BetweenAppAndEverything({ logout, isLoading, user }) {
+export default function BetweenAppAndEverything({ logout, user }) {
 
   const [allMemories, setAllMemories] = useState('')
-  let [userId, setUserId] = useState('')
-  let [allUsers, setAllUsers] = useState('')
+  const [userId, setUserId] = useState('')
+  const [allUsers, setAllUsers] = useState('')
+  //for profile component
 
   const getMemories = async () => {
     // const userAPI = `${process.env.APIURL}/memories`;
@@ -15,12 +16,10 @@ export default function BetweenAppAndEverything({ logout, isLoading, user }) {
     try {
       let res = await axios.get(userAPI);
       setAllMemories(res.data)
-      // setUserId("632b2cfae04541e4ffed9fac") /*storm's userId */
-      // setUserId("632b2cfbe04541e4ffed9fa") /*tyler's userId */
+      getEmailsOfOtherUsers()
     } catch (error) {
       console.log(error)
     }
-    getEmailsOfOtherUsers()
   }
 
   const getEmailsOfOtherUsers = async () => {
@@ -70,7 +69,7 @@ export default function BetweenAppAndEverything({ logout, isLoading, user }) {
     <>
       <div>
         <div className = "mainLogo">VIBE</div>
-        {allMemories !== '' && userId !== '' && allUsers !== '' && <Header allUsers={allUsers} user={user} logout={logout} allMemories={allMemories} userId={userId} />}
+        {allMemories !== '' && userId !== '' && allUsers !== '' && <Header getMemories={getMemories} allUsers={allUsers} user={user} logout={logout} allMemories={allMemories} userId={userId} />}
         {allMemories !== '' && userId !== '' && allUsers !== '' && <Everything allUsers={allUsers} user={user} userInfoFromAuth={user} allMemories={allMemories} getMemories={getMemories} userId={userId} />}
       </div>
 
