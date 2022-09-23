@@ -21,6 +21,7 @@ const Login = ({ loginWithRedirect }) => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "40px",
+            opacity: ".5",
           }}
         >
           CHECK
@@ -34,7 +35,7 @@ const Login = ({ loginWithRedirect }) => {
             top: "19%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-
+            opacity: ".6",
             fontSize: "65px",
           }}
         >
@@ -44,22 +45,25 @@ const Login = ({ loginWithRedirect }) => {
           className="vibeWord"
           style={{
             fontFamily: "Titan One",
-            color: '#ffffff',
+            color: "#ffffff",
             position: "absolute",
             top: "32%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "100px",
-            textDecoration:"underline"
+            textDecoration: "underline",
+            opacity: ".75",
           }}
         >
           VIBE
         </div>
       </div>
 
-      <Button className = "realLoginButton"
+      <Button
         onClick={() => loginWithRedirect()}
         style={{
+          opacity: "0.9",
+          transition: "0.3s",
           backgroundColor: "transparent",
           border: "2px white solid",
           fontFamily: "Titan One",
@@ -72,6 +76,11 @@ const Login = ({ loginWithRedirect }) => {
       >
         Login
       </Button>
+
+      <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
     </div>
   );
 };
