@@ -1,9 +1,18 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 export default class About extends Component {
   render() {
     return (
       <div>
+
+<nav>
+          <ul className="flexnav">
+            <div>              <Link to="/">Home</Link>{" "}
+</div>
+          </ul>
+        </nav>
         <div
           class="aboutMe"
           style={{

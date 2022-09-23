@@ -18,10 +18,20 @@ export default function OtherUsers({ allUsers }) {
             color: "#29E7CD",
             fontFamily: "Manrope",
             textTransform: "uppercase",
-            paddingTop: "10px",
+            // paddingTop: "10px",
             cursor: "pointer"
           }}>
-          <Dropdown.Toggle id="dropdown-basic">
+          <Dropdown.Toggle id="dropdown-basic" style={{
+              backgroundColor: "#FFFFFF",
+              border: "#FFFFFF",
+              color: "#29E7CD",
+              fontFamily: "Manrope",
+              textTransform: "uppercase",
+              paddingTop: "10px",
+              cursor: "pointer",
+              textDecoration: "none",
+
+            }}>
             Join the Party
           </Dropdown.Toggle>
 

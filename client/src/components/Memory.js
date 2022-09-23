@@ -61,8 +61,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
     matchUserToMemory();
     getComments();
     //eslint-disable-next-line
-
-  }, [])
+  },[])
 
   // this is acting like componentWillUnmount, sends patch request to the server updating likes in the db right before the component gets destroyed
   useEffect(() => {
