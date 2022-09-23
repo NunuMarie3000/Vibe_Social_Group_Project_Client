@@ -20,13 +20,13 @@ export default function Comment({allUsers, body, memoryId, getComments, commentI
 
   return (
     <>
-      <Card>
+      <Card style = {{border:'none', lineHeight: "80%"}}>
         <Card.Body>
-          <Card.Title>{authorUsername}</Card.Title>
-          <Card.Text>
+          <Card.Title style = {{fontFamily: "Manrope", fontSize: '12px', textDecoration: "underline", fontWeight: "bold"}}>{authorUsername}</Card.Title>
+          <Card.Text style = {{fontFamily: "Manrope", lineHeight: "110%", fontSize: "13px"}}>
             {body}
           </Card.Text>
-          <Card.Footer style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Card.Footer style={{display:'flex', justifyContent:'space-between', fontSize: "12px", backgroundColor: "#29E7CD",borderRadius: "5px", color: "#ffffff"}}>
             {/*edit comment button */}{/*delete comment button */}
             {commentAuthor === userId && <><EditComment  memoryId={memoryId} body={body} author={commentAuthor} getComments={getComments} commentId={commentId} /> <DeleteComment getComments={getComments} commentId={commentId} /></>}
           </Card.Footer>

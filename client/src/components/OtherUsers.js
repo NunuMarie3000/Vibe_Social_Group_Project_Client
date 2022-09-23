@@ -18,6 +18,8 @@ export default function OtherUsers({ allUsers }) {
             color: "#29E7CD",
             fontFamily: "Manrope",
             textTransform: "uppercase",
+            lineHeight: "130%",
+            // padding: "5px",
             // paddingTop: "10px",
             cursor: "pointer"
           }}>

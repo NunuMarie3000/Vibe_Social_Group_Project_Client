@@ -29,6 +29,8 @@ export default function OtherUser() {
       <div className="mainLogo">VIBE</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
         <a style={{
+          // width: '500px',
+          borderRadius: "5px",
           color: "#29E7CD",
           backgroundColor:"#fff",
           textAlign: "center",
@@ -43,7 +45,7 @@ export default function OtherUser() {
 
         <h1 style={{ textAlign: 'center' }}>{email.split("@")[0]}'s Vibes</h1>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: "center" }}>
           {userVibes !== '' && userVibes.length > 1 && userVibes.map(vibe => (
             <Card key={vibe._id}
               style={{ width: "18rem", height: "auto", marginBottom: "10px" }}>

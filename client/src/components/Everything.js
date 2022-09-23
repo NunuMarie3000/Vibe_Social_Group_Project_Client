@@ -10,7 +10,7 @@ export default function Everything({ allMemories, userId, getMemories, user, all
     <>
       {/*we need to have a new vibe button at the top for users to create a new post */}
       <NewVibeButton userId={userId} getMemories={getMemories}  />
-    <div className = "everythingDiv"
+    <div className = "vibe"
       style={{
         display: 'grid',
         gridTemplateColumns: "repeat(3, 18rem)",

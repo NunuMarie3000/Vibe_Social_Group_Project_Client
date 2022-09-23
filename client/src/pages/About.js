@@ -1,18 +1,52 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
 
 export default class About extends Component {
   render() {
     return (
       <div>
-
-<nav>
+        {/* <nav>
           <ul className="flexnav">
-            <div>              <Link to="/">Home</Link>{" "}
-</div>
+            <div>
+              {" "}
+              <Link
+                to="/"
+                style={{
+                  color: "#29E7CD",
+                  backgroundColor: "#fff",
+                  textAlign: "center",
+                  fontWeight: "300",
+                  textDecoration: "none",
+                  fontSize: "16px",
+                  padding: "18px 10px",
+                  border: "#FFFFFF",
+                  textTransform: "uppercase",
+                  fontFamily: "Manrope",
+                }}
+              >
+                Home
+              </Link>{" "}
+            </div>
           </ul>
-        </nav>
+        </nav> */}
+
+<div className="mainLogo">VIBE</div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
+        <a style={{
+          width: "500px",
+          color: "#29E7CD",
+          backgroundColor:"#fff",
+          textAlign: "center",
+          fontWeight: "300",
+          textDecoration: "none",
+          fontSize: '16px',
+          padding: "10px 8px",
+          marginTop: "20px",
+          border: "#FFFFFF",
+          textTransform: "uppercase",
+          fontFamily: "Manrope",
+          borderRadius: "5px"
+        }} href='/'>Home</a>
+        </div>
         <div
           class="aboutMe"
           style={{
@@ -22,7 +56,7 @@ export default class About extends Component {
             backgroundColor: "transparent",
             fontFamily: "Titan One",
             fontSize: "32px",
-            letterSpacing: '1',
+            letterSpacing: "1",
             textAlign: "center",
             position: "absolute",
             top: "50%",
@@ -34,12 +68,12 @@ export default class About extends Component {
           <div
             style={{
               backgroundColor: "#FFFFFF",
-              color: '#000000',
+              color: "#000000",
               border: "2px white solid",
               width: "500px",
               fontSize: "18px",
-              fontFamily: 'Manrope',
-              padding: '15px'
+              fontFamily: "Manrope",
+              padding: "15px",
             }}
           >
             This is the final project for Code301. This project focused on using

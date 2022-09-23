@@ -21,8 +21,8 @@ export default function Comments({ comments, memoryId, author, getComments, allU
           <Accordion.Body style={{ overflowY: 'scroll', height: 'auto' }}>
 
             {/*add comment button */}
-            <div style={{ fontFamily: "Manrope", letterSpacing: "1" }}>
-              <i onClick={handleAddClick}>+ New Comment</i>
+            <div style={{ fontFamily: "Manrope", letterSpacing: "1" , display: "grid", justifyContent: "center", color: "#ffffff", backgroundColor: "#29E7CD",border: "2px white solid", borderRadius: "5px"}}>
+              <i onClick={handleAddClick}>+ Add Comment</i>
             </div>
 
             {comments !== '' && comments.length > 1 && comments.map(com => (
