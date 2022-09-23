@@ -12,9 +12,23 @@ body {
     rgba(41, 231, 205, 1) 0%,
     rgba(224, 134, 211, 1) 71%
   );
-  display: flex;
+  display: grid;
   justify-content: center;
   background-attachment: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+  body{
+    display: block; 
+    width: 400px;
+    /* flex-direction: column;
+     grid-template-columns: 18rem; */
+  }
+  .everthingDiv{
+    display: block;
+    grid-template-columns: 18rem;
+    /* margin-top: 10px; */
+  }
 }
 
 /* //////////////////////////////////////////nav bar//////////// */
@@ -45,12 +59,10 @@ body {
   float: left;
   display: block;
   position: relative;
-
 }
 .flexnav li a {
   color: #29E7CD;
   text-align: center;
-
 }
 .flexnav > li > a {
   display: block;
@@ -76,8 +88,9 @@ body {
 .cardLogo {
   text-align: right;
   font-family: "Titan One";
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: -19px;
+  color: #24C1AC
 }
 .cardLogoHeader {
   text-align: right;
@@ -114,6 +127,7 @@ justify-content: center;
 transform: rotateZ(90deg);
 }
 
+
 .addVibeButton{
   display: grid;
 justify-content: center;
@@ -146,4 +160,50 @@ justify-content: center;
 .dark {
   background-color: black;
   color: #000000;
+}
+
+/* //////////////////////////LOGIN//////////////////// */
+
+
+.ocean { 
+  height: 5%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #015871;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
 }

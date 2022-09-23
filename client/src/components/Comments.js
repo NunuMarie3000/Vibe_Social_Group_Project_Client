@@ -3,7 +3,9 @@ import { Accordion } from 'react-bootstrap'
 import NewComment from './crud_comments/NewComment'
 import Comment from './Comment'
 
+
 export default function Comments({ comments, memoryId, author, getComments, allUsers, userId, userAuth0 }) {
+
   const [isAddClicked, setIsAddClicked] = useState(false)
 
   const handleAddClick = () => {
@@ -14,6 +16,7 @@ export default function Comments({ comments, memoryId, author, getComments, allU
     <>
       <Accordion flush>
         <Accordion.Item eventKey="0">
+        
           <Accordion.Header style={{ fontFamily: 'Manrope' }}>Comments</Accordion.Header>
           <Accordion.Body style={{ overflowY: 'scroll', height: '100px' }}>
 
