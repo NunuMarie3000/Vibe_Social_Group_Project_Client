@@ -60,7 +60,7 @@ const Login = ({ loginWithRedirect }) => {
       </div>
 
       <Button
-        onClick={() => loginWithRedirect()}
+        onClick={loginWithRedirect}
         style={{
           opacity: "0.9",
           transition: "0.3s",
@@ -77,9 +77,9 @@ const Login = ({ loginWithRedirect }) => {
         Login
       </Button>
 
-      <div class="ocean">
-        <div class="wave"></div>
-        <div class="wave"></div>
+      <div className="ocean">
+        <div className="wave"></div>
+        <div className="wave"></div>
       </div>
     </div>
   );
