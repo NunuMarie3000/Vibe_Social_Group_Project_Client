@@ -2,6 +2,7 @@ import React from "react";
 import {useAuth0} from "@auth0/auth0-react"
 import LoginPage from "./pages/LoginPage"
 import BetweenAppAndEverything from "./components/BetweenAppAndEverything";
+import LoadingPage from "./components/LoadingPage";
 
 
 const App = () => {
@@ -9,7 +10,9 @@ const App = () => {
 
   if(user){
     return(
-      <><BetweenAppAndEverything user={user} logout={logout} isLoading={isLoading} /></>
+      <>
+        {isLoading ? <LoadingPage/> : <BetweenAppAndEverything user={user} logout={logout} isLoading={isLoading} />}
+      </>
     )
   }else{
     return(<><LoginPage loginWithRedirect={loginWithRedirect} /></>)
