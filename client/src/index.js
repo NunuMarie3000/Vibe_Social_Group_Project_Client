@@ -26,9 +26,6 @@ root.render(
         <Route exact path="/:email/user/:userIdParams" element={<OtherUser />} />
 
         <Route path='about' element={<About/>}/>
-
-        {/* <Route exact path="/about" element={<About />} /> */}
-        {/* <Route exact path="/home" element={<HomePage />} /> */}
       </Routes>
     </BrowserRouter>
 
