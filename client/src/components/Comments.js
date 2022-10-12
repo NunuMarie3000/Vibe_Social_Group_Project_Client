@@ -25,7 +25,7 @@ export default function Comments({ comments, memoryId, author, getComments, allU
               <i onClick={handleAddClick}>+ Add Comment</i>
             </div>
 
-            {comments !== '' && comments.length > 1 && comments.map(com => (
+            {comments !== '' && comments.length > 1 && comments.slice(0).reverse().map(com => (
               <Comment userId={userId} key={com._id} allUsers={allUsers} body={com.body} memoryId={memoryId} getComments={getComments} commentId={com._id} commentAuthor={com.author} memoryAuthor={author} />
             ))}
 
