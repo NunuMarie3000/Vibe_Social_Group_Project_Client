@@ -3,6 +3,7 @@ import {useAuth0} from "@auth0/auth0-react"
 import LoginPage from "./pages/LoginPage"
 import BetweenAppAndEverything from "./components/BetweenAppAndEverything";
 
+
 const App = () => {
   const { user, loginWithRedirect, logout, isLoading } = useAuth0()
 
