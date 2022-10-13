@@ -2,8 +2,6 @@ import React from "react";
 import {useAuth0} from "@auth0/auth0-react"
 import LoginPage from "./pages/LoginPage"
 import BetweenAppAndEverything from "./components/BetweenAppAndEverything";
-import LoadingPage from "./components/LoadingPage";
-
 
 const App = () => {
   const { user, loginWithRedirect, logout, isLoading } = useAuth0()
@@ -11,7 +9,7 @@ const App = () => {
   if(user){
     return(
       <>
-        {isLoading ? <LoadingPage/> : <BetweenAppAndEverything user={user} logout={logout} isLoading={isLoading} />}
+        <BetweenAppAndEverything user={user} logout={logout} isLoading={isLoading} />
       </>
     )
   }else{

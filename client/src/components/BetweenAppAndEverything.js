@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import axios from "axios";
 import Everything from "./Everything"
+import LoadingPage from '../components/LoadingPage';
 
 export default function BetweenAppAndEverything({ logout, user }) {
 
   const [allMemories, setAllMemories] = useState('')
   const [userId, setUserId] = useState('')
   const [allUsers, setAllUsers] = useState('')
+  // create loading hook
+  const [areWeLoading, setAreWeLoading] = useState(false);
   //for profile component
 
   const getMemories = async () => {
@@ -60,19 +63,28 @@ export default function BetweenAppAndEverything({ logout, user }) {
   }
 
   useEffect(() => {
+    setAreWeLoading(true);
     getIdFromDb()
+    setAreWeLoading(false);
     //eslint-disable-next-line
   }, [])
 
-  return (
-    <>
-      <div>
-        <div className = "mainLogo">VIBE</div>
-        {allMemories !== '' && userId !== '' && allUsers !== '' && <Header getMemories={getMemories} allUsers={allUsers} user={user} logout={logout} allMemories={allMemories} userId={userId} />}
-        {allMemories !== '' && userId !== '' && allUsers !== '' && <Everything allUsers={allUsers} user={user} userInfoFromAuth={user} allMemories={allMemories} getMemories={getMemories} userId={userId} />}
-      </div>
-
-
-    </>
-  )
+  if(areWeLoading)
+  {
+    return(
+      <LoadingPage/>
+    )
+  }
+  else
+  {
+    return(
+        <>
+          <div>
+            <div className = "mainLogo">VIBE</div>
+            {allMemories !== '' && userId !== '' && allUsers !== '' && <Header getMemories={getMemories} allUsers={allUsers} user={user} logout={logout} allMemories={allMemories} userId={userId} />}
+            {allMemories !== '' && userId !== '' && allUsers !== '' && <Everything allUsers={allUsers} user={user} userInfoFromAuth={user} allMemories={allMemories} getMemories={getMemories} userId={userId} />}
+          </div>
+        </>
+      )
+  }
 }
