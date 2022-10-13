@@ -34,6 +34,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
   }
 
   const getIdFromDb = async () => {
+    setAreWeLoading(true);
     const email = user.email
     const url = `https://memories-socialmedia-group.herokuapp.com/useremail/${email}`
     try {
@@ -47,6 +48,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
       console.log(error)
     }
     getMemories()
+    setAreWeLoading(false);
   }
 
   const createNewUsersId = async () => {
@@ -63,9 +65,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
   }
 
   useEffect(() => {
-    setAreWeLoading(true);
     getIdFromDb()
-    setAreWeLoading(false);
     //eslint-disable-next-line
   }, [])
 
