@@ -19,6 +19,6 @@ Vibe Social is a MERN stack application, utilizing the ReactJs Framework, in tan
 - FavIcon
 - Copious amounts of Coffee
 
-## You can view the deployed application [here](https://catch-a-vibe.netlify.app/){:target="_blank" rel="noopener"}
+## You can view the deployed application [here](https://catch-a-vibe.netlify.app/)
 
 Feel free to hop on, make an account, and get to vibing with us!
