@@ -17,12 +17,7 @@ export default function NewVibeButton({ userId, getMemories }) {
           border: "2px white solid",
           borderRadius: "50px",
           alignItems: "center",
-          // width: "30px",
-          padding: "5px",
-          paddingBottom: '10px',
-          // paddingTop: '5px',
-          paddingRight: "-10px"
-          
+          padding:"2px 50px"
         }}
         variant="info"
         onClick={handleClick}

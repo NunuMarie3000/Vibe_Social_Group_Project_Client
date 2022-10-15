@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
 import { useParams } from 'react-router'
 import axios from 'axios'
+import { Link } from "react-router-dom";
 // this will be slide overlay like profile, on opposite side that renders posts of that specific user
 
 export default function OtherUser() {
@@ -28,20 +29,19 @@ export default function OtherUser() {
     <>
       <div className="mainLogo">VIBE</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
-        <a style={{
+        <Link style={{
           // width: '500px',
           borderRadius: "5px",
           color: "#29E7CD",
           backgroundColor:"#fff",
           textAlign: "center",
           fontWeight: "300",
-          textDecoration: "none",
           fontSize: '16px',
           padding: "18px 10px",
           border: "#FFFFFF",
           textTransform: "uppercase",
           fontFamily: "Manrope",
-        }} href='/'>Home</a>
+        }} to='/'>Home</Link>
 
         <h1 style={{ textAlign: 'center' }}>{email.split("@")[0]}'s Vibes</h1>
 

@@ -15,13 +15,32 @@ body {
   background-attachment: fixed;
 }
 
-@media only screen and (max-width: 600px) {
+.vibe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
 
-  .vibe {
+@media only screen and (max-width: 905px)
+{
+  .vibe{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* body{
+    padding-left: 2rem;
+  } */
+  /* .vibe {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center
+  } */
+  .vibe{
+    grid-template-columns: 1fr;
   }
 }
 
@@ -44,22 +63,30 @@ body {
   line-height: 0.5;
   background: #ffffff;
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
     /* background:  transparent; */
     /* width: 100%; */
+}
+.flexnav li > button
+{
+  background-color: #FFF;
+  border: #fff;
+  color: #29E7CD;
+  font-family: Manrope;
+  text-transform: uppercase;
+  padding-top: 10px;
+  cursor: pointer;
 }
 
 .flexnav>li>a {
   padding: 18px 0px 10px;
   font-size: 16px;
   text-transform: uppercase;
+  display: block;
+  font-weight: 300;
+  text-decoration: none;
 }
 
-/* .flexnav:after {
-  content: "";
-  display: table;
-  clear: both;
-}  */
 .flexnav>li {
   float: left;
   display: block;
@@ -69,17 +96,6 @@ body {
 .flexnav li a {
   color: #29E7CD;
   text-align: center;
-}
-
-.flexnav>li>a {
-  display: block;
-  font-weight: 300;
-  text-decoration: none;
-
-}
-
-.flexnav li a:hover {
-  color: #243119;
 }
 
 .logoffButton {
@@ -131,9 +147,12 @@ body {
 }
 
 .newVibeButton {
-  display: grid;
+  display: flex;
+  /* display: grid; */
   justify-content: center;
-  transform: rotateZ(90deg);
+  /* transform: rotateZ(90deg); */
+  /* margin: 0; */
+  /* padding-left: 100px; */
 }
 
 

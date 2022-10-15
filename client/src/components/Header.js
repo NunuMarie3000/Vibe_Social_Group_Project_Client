@@ -9,50 +9,25 @@ const Header = ({ logout, allMemories, userId, user, getMemories, allUsers }) =>
   return (
     <>
 
-        <nav>
-          <ul className="flexnav">
-            <li>
-              <Link to="/">Home</Link>{" "}
-            </li>
-            <Link
-            to="/about"
-            style={{
-              backgroundColor: "#FFFFFF",
-              border: "#FFFFFF",
-              color: "#29E7CD",
-              fontFamily: "Manrope",
-              textTransform: "uppercase",
-              paddingTop: "17px",
-              cursor: "pointer",
-              textDecoration: "none",
-            }}
-          >
-            About
-          </Link>           
+      <nav>
+        <ul className="flexnav">
           <li>
-              <Profile allUsers={allUsers} getMemories={getMemories} user={user} allMemories={allMemories} userId={userId} />
-            </li>
-            <li>
-              <OtherUsers allUsers={allUsers} getMemories={getMemories} allMemories={allMemories} />
-            </li>
-            <li>
-              <Button
-                onClick={logout}
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  border: "#FFFFFF",
-                  color: "#29E7CD",
-                  fontFamily: "Manrope",
-                  textTransform: "uppercase",
-                  paddingTop: "10px",
-                  cursor: "pointer"
-                }}
-              >
-                Logout
-              </Button>
-            </li>
-          </ul>
-        </nav>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">&nbsp;&nbsp;&nbsp;About</Link>
+          </li>
+          <li>
+            <Profile allUsers={allUsers} getMemories={getMemories} user={user} allMemories={allMemories} userId={userId} />
+          </li>
+          <li>
+            <OtherUsers allUsers={allUsers} getMemories={getMemories} allMemories={allMemories} />
+          </li>
+          <li>
+            <Button onClick={logout}>Logout</Button>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 };

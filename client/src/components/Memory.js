@@ -7,10 +7,9 @@ import axios from "axios";
 import "../Nav.css";
 
 
-
 export default function Memory({ author, likes, createdAt, image, content, userId, memoryId, getMemories, user, allUsers }) {
   const memoryInfo = { author, createdAt, likes, image, content, userId, memoryId }
-  
+
   const [allComments, setAllComments] = useState('')
   const [isLiked, setIsLiked] = useState(false)
   const [authorUsername, setAuthorUsername] = useState('')
@@ -28,14 +27,14 @@ export default function Memory({ author, likes, createdAt, image, content, userI
 
   const matchUserToMemory = () => {
 
-    let correctAuthor = allUsers.find(obj =>{return obj._id === author})
+    let correctAuthor = allUsers.find(obj => { return obj._id === author })
     setAuthorUsername(correctAuthor.email.split("@")[0])
   }
 
   const likeVibe = () => {
 
     setIsLiked(!isLiked)
-    if(!isLiked){return (likeCounter.current = likeCounter.current + 1)}
+    if (!isLiked) { return (likeCounter.current = likeCounter.current + 1) }
     else return (likeCounter.current = likeCounter.current - 1)
   }
 
@@ -61,7 +60,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
     matchUserToMemory();
     getComments();
     //eslint-disable-next-line
-  },[])
+  }, [])
 
   // this is acting like componentWillUnmount, sends patch request to the server updating likes in the db right before the component gets destroyed
   useEffect(() => {
@@ -100,9 +99,9 @@ export default function Memory({ author, likes, createdAt, image, content, userI
               borderRadius: "0px",
             }}
           />
-          <div className = "authorImage">{authorUsername}</div>
+          <div className="authorImage">{authorUsername}</div>
 
-          <hr/>
+          <hr />
           <Card.Text
             style={{
               marginTop: "10px",

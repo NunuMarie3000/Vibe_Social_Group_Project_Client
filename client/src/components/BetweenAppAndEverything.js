@@ -79,11 +79,9 @@ export default function BetweenAppAndEverything({ logout, user }) {
   {
     return(
         <>
-          <div>
             <div className = "mainLogo">VIBE</div>
             {allMemories !== '' && userId !== '' && allUsers !== '' && <Header getMemories={getMemories} allUsers={allUsers} user={user} logout={logout} allMemories={allMemories} userId={userId} />}
             {allMemories !== '' && userId !== '' && allUsers !== '' && <Everything allUsers={allUsers} user={user} userInfoFromAuth={user} allMemories={allMemories} getMemories={getMemories} userId={userId} />}
-          </div>
         </>
       )
   }
