@@ -41,7 +41,7 @@ export default function OtherUser() {
           border: "#FFFFFF",
           textTransform: "uppercase",
           fontFamily: "Manrope",
-        }} to='/'>Home</Link>
+        }} to='/home'>Home</Link>
 
         <h1 style={{ textAlign: 'center' }}>{email.split("@")[0]}'s Vibes</h1>
 
