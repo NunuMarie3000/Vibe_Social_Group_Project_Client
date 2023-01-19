@@ -17,7 +17,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
   const likeCounter = useRef(0)
 
   const getComments = async () => {
-    const url = `${process.env.REACT_APP_APIURL}${memoryId}`;
+    const url = `${process.env.REACT_APP_APIURL}comments/${memoryId}`;
     try {
       await axios.get(url).then((res) => setAllComments(res.data));
     } catch (error) {
@@ -39,7 +39,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
   }
 
   const updateLikes = async () => {
-    const url = `${process.env.REACT_APP_APIURL}${memoryId}`
+    const url = `${process.env.REACT_APP_APIURL}memory/${memoryId}`
 
     const sendLikes = {
       "likes": (likeCounter.current + likes)

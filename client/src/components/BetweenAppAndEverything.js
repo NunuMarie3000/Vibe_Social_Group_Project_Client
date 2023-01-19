@@ -36,7 +36,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
   const getIdFromDb = async () => {
     setAreWeLoading(true);
     const email = user.email
-    const url = `${process.env.REACT_APP_APIURL}${email}`
+    const url = `${process.env.REACT_APP_APIURL}useremail/${email}`
     try {
       const response = await axios.get(url)
       if (response.data.user === null || response.data.user === '' || response.data.user === undefined) {
