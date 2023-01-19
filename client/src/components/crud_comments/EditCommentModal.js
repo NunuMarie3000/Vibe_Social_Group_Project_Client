@@ -6,7 +6,7 @@ export default function EditCommentModal({ author, memoryId, getComments, commen
   const [updatedBody, setUpdatedBody] = useState('')
 
   const handleSubmit = async (e) => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/comment/${commentId}`
+    const url = `${process.env.REACT_APP_APIURL}comment/${commentId}`
     let sendBody 
     if(updatedBody === ''){sendBody = commentBody}else{sendBody = updatedBody}
     const reqBody = {

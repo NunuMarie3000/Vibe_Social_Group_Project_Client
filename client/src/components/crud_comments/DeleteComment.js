@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function DeleteComment({ commentId, getComments }) {
   const handleDeleteClick = async () => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/comment/${commentId}`
+    const url = `${process.env.REACT_APP_APIURL}comment/${commentId}`
     try {
       await axios.delete(url)
       getComments()

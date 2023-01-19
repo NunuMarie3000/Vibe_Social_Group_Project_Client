@@ -10,7 +10,7 @@ export default function EditVibe({ memoryInfo, getMemories, isEditClicked, handl
   const [updatedContent, setUpdatedContent] = useState('')
 
   const handleSubmit = async (e) => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/memory/${memoryId}`
+    const url = `${process.env.REACT_APP_APIURL}memory/${memoryId}`
 
     let sendImage 
     let sendContent

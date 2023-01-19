@@ -11,7 +11,7 @@ export default function OtherUser() {
 
   const getUserParamMemories = async () => {
     // const userAPI = `${process.env.APIURL}/memories`;
-    const userAPI = `https://memories-socialmedia-group.herokuapp.com/memories/${userIdParams}`;
+    const userAPI = `${process.env.REACT_APP_APIURL}memories/${userIdParams}`;
     try {
       let res = await axios.get(userAPI);
       setUserVibes(res.data)

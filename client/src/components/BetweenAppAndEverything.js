@@ -25,7 +25,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
   }
 
   const getEmailsOfOtherUsers = async () => {
-    const userAPI = `https://memories-socialmedia-group.herokuapp.com/users`
+    const userAPI = `${process.env.REACT_APP_APIURL}users`
     try {
       await axios.get(userAPI).then(res => setAllUsers(res.data))
     } catch (error) {
@@ -36,7 +36,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
   const getIdFromDb = async () => {
     setAreWeLoading(true);
     const email = user.email
-    const url = `https://memories-socialmedia-group.herokuapp.com/useremail/${email}`
+    const url = `${process.env.REACT_APP_APIURL}${email}`
     try {
       const response = await axios.get(url)
       if (response.data.user === null || response.data.user === '' || response.data.user === undefined) {
@@ -52,7 +52,7 @@ export default function BetweenAppAndEverything({ logout, user }) {
   }
 
   const createNewUsersId = async () => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/newuser`
+    const url = `${process.env.REACT_APP_APIURL}newuser`
     const body = {
       email: user.email
     }

@@ -17,7 +17,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
   const likeCounter = useRef(0)
 
   const getComments = async () => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/comments/${memoryId}`;
+    const url = `${process.env.REACT_APP_APIURL}${memoryId}`;
     try {
       await axios.get(url).then((res) => setAllComments(res.data));
     } catch (error) {
@@ -39,7 +39,7 @@ export default function Memory({ author, likes, createdAt, image, content, userI
   }
 
   const updateLikes = async () => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/memory/${memoryId}`
+    const url = `${process.env.REACT_APP_APIURL}${memoryId}`
 
     const sendLikes = {
       "likes": (likeCounter.current + likes)

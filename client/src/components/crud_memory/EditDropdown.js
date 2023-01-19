@@ -7,7 +7,7 @@ export default function EditDropdown({ memoryInfo, getMemories }) {
   const [isEditClicked, setIsEditClicked] = useState(false)
 
   const handleDeleteClick = async () => {
-    const url=`https://memories-socialmedia-group.herokuapp.com/memory/${memoryInfo.memoryId}`
+    const url=`${process.env.REACT_APP_APIURL}memory/${memoryInfo.memoryId}`
     try {
       await axios.delete(url)
       getMemories()

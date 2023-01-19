@@ -8,7 +8,7 @@ export default function NewVibe({ isClicked, handleClick, userId, getMemories })
   const [vibeContent, setVibeContent] = useState('')
 
   const handleSubmit = async (e) => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/newmemory/${userId}`
+    const url = `${process.env.REACT_APP_APIURL}newmemory/${userId}`
     const newBody = {
       author: userId,
       image:  vibeImage,

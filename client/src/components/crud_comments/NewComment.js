@@ -7,7 +7,7 @@ export default function NewComment({ memoryId, handleAddClick, isAddClicked, get
 
 
   const handleSubmit = async (e) => {
-    const url = `https://memories-socialmedia-group.herokuapp.com/newcomment`
+    const url = `${process.env.REACT_APP_APIURL}newcomment`
     const newComment = {
       // this userId is the auth0 userobject, where did i go wrong?
       author: userId,
